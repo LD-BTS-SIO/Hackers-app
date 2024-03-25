@@ -1,0 +1,28 @@
+<!-- page2.component.html -->
+<table *ngIf="hackers.length > 0; else hackersEmpty" class="table is-striped center">
+    <thead>
+      <tr>
+        <th>IP</th>
+        <th>Pays</th>
+        <th>Région</th>
+        <th>Ville</th>
+        <th>Opérations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let hacker of hackers">
+        <td>{{ hacker.ip }}</td>
+        <td>{{ hacker.country_name }}</td>
+        <td>{{ hacker.region_name }}</td>
+        <td>{{ hacker.city }}</td>
+        <td>
+          <i class="bi bi-pencil-square" (click)="editHacker(hacker)" style="color: green; cursor: pointer;"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <ng-template #hackersEmpty>
+    <p>Pas de hackers !</p>
+  </ng-template>
+  
